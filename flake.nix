@@ -3,7 +3,7 @@
 
   outputs = { self, ... }: {
     overlays.sphinx-needs = import ./sphinx-needs-overlay.nix;
-    
-    overlays.default = {};
+
+    overlays.default = self.overlays.sphinx-needs;
   };
 }

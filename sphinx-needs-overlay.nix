@@ -1,5 +1,8 @@
 self: super:
 
+with super;
+with super.python3Packages;
+with super.nodePackages;
 {
   sphinx-needs = super.callPackage ./pkgs/sphinx-needs.nix{
     sphinx-data-viewer = self.sphinx-data-viewer;

@@ -1,17 +1,20 @@
 self: super:
 
-with super;
-with super.python3Packages;
-with super.nodePackages;
 {
-  sphinx-needs = super.callPackage ./pkgs/sphinx-needs.nix{
-    sphinx-data-viewer = self.sphinx-data-viewer;
-  };
-  sphinxcontrib-test-reports = super.callPackage ./pkgs/sphinxcontrib-test-reports.nix{
-    sphinx-needs = self.sphinx-needs;
-  };
-  sphinx-data-viewer = super.callPackage ./pkgs/sphinx-data-viewer.nix{ };
-  sphinx-simplepdf = super.callPackage ./pkgs/sphinx-simplepdf.nix{ };
-  sphinx-preview = super.callPackage ./pkgs/sphinx-preview.nix{ };
-  sphinx-immaterial = super.callPackage ./pkgs/sphinx-immaterial.nix{ };
+  pythonPackagesExtensions = super.pythonPackagesExtensions ++ [
+    (
+      python-self: python-super: {
+        sphinx-needs = python-self.callPackage ./pkgs/sphinx-needs.nix{
+          sphinx-data-viewer = python-self.sphinx-data-viewer;
+        };
+        sphinxcontrib-test-reports = python-self.callPackage ./pkgs/sphinxcontrib-test-reports.nix{
+          sphinx-needs = python-self.sphinx-needs;
+        };
+        sphinx-data-viewer = python-self.callPackage ./pkgs/sphinx-data-viewer.nix{ };
+        sphinx-simplepdf = python-self.callPackage ./pkgs/sphinx-simplepdf.nix{ };
+        sphinx-preview = python-self.callPackage ./pkgs/sphinx-preview.nix{ };
+        sphinx-immaterial = python-self.callPackage ./pkgs/sphinx-immaterial.nix{ };
+      }
+    )
+  ];
 }

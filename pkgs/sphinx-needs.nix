@@ -1,5 +1,5 @@
 {
-    buildPythonPackage,
+    python3Packages,
     fetchFromGitHub,
     poetry-core,
     setuptools,
@@ -13,7 +13,7 @@
     sphinx-design
 }:
 
-buildPythonPackage rec {
+python3Packages.buildPythonPackage rec {
   pname = "sphinx-needs";
   version = "2.1.0";
   src = fetchFromGitHub {

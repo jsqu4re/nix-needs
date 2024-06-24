@@ -2,7 +2,8 @@
   description = "Sphinx Needs overlay for Nixpkgs";
 
   outputs = { self, ... }: {
-    # Default overlay.
-    overlay = import ./default.nix;
+    overlays.sphinx-needs = import ./sphinx-needs-overlay.nix;
+    
+    overlays.default = {};
   };
 }

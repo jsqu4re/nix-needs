@@ -1,3 +1,0 @@
-[
-  ./sphinx-needs-overlay.nix
-]

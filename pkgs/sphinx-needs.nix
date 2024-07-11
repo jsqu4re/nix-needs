@@ -15,12 +15,12 @@
 
 python3Packages.buildPythonPackage rec {
   pname = "sphinx-needs";
-  version = "2.1.0";
+  version = "2.2.0";
   src = fetchFromGitHub {
     owner = "useblocks";
     repo = "sphinx-needs";
-    rev = "${version}";
-    sha256 = "sha256-hREar5JMv8BZtRXlMU/bELKilj3UNWBcf+hFMvhXJkI=";
+    rev = "1de1a7a047bfc7912ea0aa779ffb187def7a5254";
+    sha256 = "sha256-UXlnXLWMflrGrB1Sj6QujMbejmFB6tnTpztEP3ZCBv8=";
   };
   format = "pyproject";
 

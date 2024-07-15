@@ -1,0 +1,20 @@
+--- a/sphinxcontrib/plantuml.py	2024-07-15 13:38:42.343623446 +0200
++++ b/sphinxcontrib/plantuml.py	2024-07-15 13:40:19.151162092 +0200
+@@ -518,7 +518,7 @@
+         [
+             # copy width/height style from <svg> tag, so that <object> area
+             # has enough space.
+-            '<object data="%s" type="image/svg+xml" style="%s">'
++            '<object class="lazy" data-src="%s" type="image/svg+xml" style="%s">'
+             % (self.encode(refname), style_str),
+             _get_png_tag(self, fnames, node),
+             '</object>',
+@@ -536,7 +536,7 @@
+     refname, outfname = fnames['svg']
+     # copy width/height style from <svg> tag, so that <object> area
+     # has enough space.
+-    return '<object data="%s" type="image/svg+xml" style="%s"></object>' % (
++    return '<object class="lazy" data-src="%s" type="image/svg+xml" style="%s"></object>' % (
+         self.encode(refname),
+         _get_svg_style(outfname) or '',
+     )

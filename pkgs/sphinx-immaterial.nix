@@ -18,13 +18,13 @@
 
 buildPythonPackage rec {
   pname = "sphinx-immaterial";
-  version = "0.11.11";
+  version = "0.12.0";
   format = "pyproject";
   src = fetchFromGitHub {
     owner = "jbms";
     repo = "sphinx-immaterial";
     rev = "v${version}";
-    sha256 = "sha256-Wcc3Bkp9i3L9gxNVZO/+8rvAGzH6I+XRO8kzbVYbT4k=";
+    sha256 = "sha256-iNvxBPtPgtGD89dX0yO0W2KlUQdsryu/NBJvl5DMagk=";
   };
 
   propagatedBuildInputs = [

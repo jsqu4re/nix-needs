@@ -1,48 +1,45 @@
-{ lib
-, buildPythonPackage
-, fetchFromGitHub
-, fetchNpmDeps
-, npmHooks
-, setuptools
-, setuptools-scm
-, poetry-core
-, nodejs_18
-, sphinx
-, markupsafe
-, typing-extensions
-, pydantic
-, pydantic-extra-types
-, appdirs
-, requests
+{
+  lib,
+  buildPythonPackage,
+  fetchFromGitHub,
+  fetchNpmDeps,
+  npmHooks,
+  setuptools-scm,
+  poetry-core,
+  nodejs_18,
+  sphinx,
+  pydantic,
+  pydantic-extra-types,
+  appdirs,
 }:
 
 buildPythonPackage rec {
   pname = "sphinx-immaterial";
-  version = "0.12.0";
-  format = "pyproject";
+  version = "0.12.2";
+  pyproject = true;
+
   src = fetchFromGitHub {
     owner = "jbms";
     repo = "sphinx-immaterial";
     rev = "v${version}";
-    sha256 = "sha256-iNvxBPtPgtGD89dX0yO0W2KlUQdsryu/NBJvl5DMagk=";
+    hash = "sha256-d+2xddIXithxMnypfQDqylJXKGMf4mgmN/eD8BPMpt8=";
   };
 
-  propagatedBuildInputs = [
-    sphinx
-    markupsafe
-    pydantic
-    pydantic-extra-types
-    typing-extensions
-    appdirs
-    requests
+  build-system = [
+    poetry-core
+    setuptools-scm
   ];
 
   nativeBuildInputs = [
-    setuptools
-    poetry-core
-    setuptools-scm
     nodejs_18
     npmHooks.npmConfigHook
+  ];
+
+  dependencies = [
+    sphinx
+    pydantic
+    pydantic-extra-types
+    appdirs
   ];
 
   env.npmDeps = fetchNpmDeps {
@@ -51,9 +48,9 @@ buildPythonPackage rec {
     hash = "sha256-NUKCAsn3Y9/gDkez5NgnCMKoQm45JSvR/oAepChDAJg=";
   };
 
-  meta = with lib; {
-    description = "This theme is an adaptation of the popular mkdocs-material theme for the Sphinx documentation tool.";
-    longDescription = ''
+  meta = {
+    lib.description = "Adaptation of the popular mkdocs-material theme for the Sphinx documentation tool";
+    lib.longDescription = ''
       This theme is regularly maintained to stay up to date with the upstream mkdocs-material repository.
       The HTML templates, JavaScript, and styles from the mkdocs-material theme are incorporated directly
       with mostly minor modifications.
@@ -65,8 +62,8 @@ buildPythonPackage rec {
       on an earlier version of the mkdocs-material theme, but has now significantly diverged from the
       upstream mkdocs-material repository.
     '';
-    homepage = "https://jbms.github.io/sphinx-immaterial/";
-    license = licenses.mit;
-    maintainers = with maintainers; [ jsqu4re ];
+    lib.homepage = "https://jbms.github.io/sphinx-immaterial/";
+    lib.license = lib.licenses.mit;
+    lib.maintainers = with lib.maintainers; [ jsqu4re ];
   };
 }

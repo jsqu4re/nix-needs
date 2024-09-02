@@ -1,26 +1,29 @@
 {
   buildPythonPackage,
   fetchFromGitHub,
-  poetry-core
+  poetry-core,
+  python3Packages
 }:
 
 buildPythonPackage rec {
   pname = "sphinx-data-viewer";
-  version = "0.1.4";
+  version = "0.1.5";
   src = fetchFromGitHub {
     owner = "useblocks";
     repo = "sphinx-data-viewer";
-    rev = "${version}";
-    sha256 = "sha256-5hG8LqWz1Xu1yq6U9HjJAwtxy189EgPmqmZKptaBA+o=";
+    rev = "v${version}";
+    sha256 = "sha256-m/BZ16b3rmQyRKEMqX1kMHAn6dIWoC6/QDvWUnkopjE=";
   };
   format = "pyproject";
 
   patches = [
-    ./patches/sphinx-data-viewer-build-tool.patch
+    # ./patches/sphinx-data-viewer-build-tool.patch
   ];
 
   nativeBuildInputs = [
     poetry-core
+    python3Packages.flit-core
+    python3Packages.sphinx
   ];
 
   propagatedBuildInputs = [

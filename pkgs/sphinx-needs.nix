@@ -15,17 +15,17 @@
 
 python3Packages.buildPythonPackage rec {
   pname = "sphinx-needs";
-  version = "2.2.0";
+  version = "3.0.0";
   src = fetchFromGitHub {
     owner = "useblocks";
     repo = "sphinx-needs";
-    rev = "1de1a7a047bfc7912ea0aa779ffb187def7a5254";
-    sha256 = "sha256-UXlnXLWMflrGrB1Sj6QujMbejmFB6tnTpztEP3ZCBv8=";
+    rev = version;
+    sha256 = "sha256-1xtMmIKfGOi7qFYFtYBrdwSk7BJ8M0ifVJMSLfKqA04=";
   };
   format = "pyproject";
 
   patches = [
-    ./patches/requests-file-version.patch
+    # ./patches/requests-file-version.patch
   ];
 
   nativeBuildInputs = [

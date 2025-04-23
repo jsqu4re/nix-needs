@@ -22,4 +22,5 @@ self: super:
       }
     )
   ];
+  filtrex = self.callPackage ../pkgs/filtrex.nix { };
 }

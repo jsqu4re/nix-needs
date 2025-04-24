@@ -1,11 +1,11 @@
 {
-    buildPythonPackage,
-    fetchFromGitHub,
-    setuptools,
-    beautifulsoup4,
-    libsass,
-    weasyprint,
-    sphinx
+  buildPythonPackage,
+  fetchFromGitHub,
+  setuptools,
+  beautifulsoup4,
+  libsass,
+  weasyprint,
+  sphinx
 }:
 
 buildPythonPackage rec {

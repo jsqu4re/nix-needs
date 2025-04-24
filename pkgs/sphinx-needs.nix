@@ -1,16 +1,15 @@
 {
-    python3Packages,
-    fetchFromGitHub,
-    poetry-core,
-    setuptools,
-    jsonschema,
-    requests,
-    requests-file,
-    sphinx,
-    sphinx-data-viewer,
-    sphinxcontrib-jquery,
-    sphinxcontrib-plantuml,
-    sphinx-design
+  fetchFromGitHub,
+  poetry-core,
+  setuptools,
+  jsonschema,
+  requests,
+  requests-file,
+  sphinx,
+  sphinx-data-viewer,
+  sphinxcontrib-jquery,
+  sphinxcontrib-plantuml,
+  sphinx-design
 }:
 
 python3Packages.buildPythonPackage rec {

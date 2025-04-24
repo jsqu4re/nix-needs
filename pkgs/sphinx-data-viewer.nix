@@ -2,7 +2,8 @@
   buildPythonPackage,
   fetchFromGitHub,
   poetry-core,
-  python3Packages
+  flit-core,
+  sphinx,
 }:
 
 buildPythonPackage rec {
@@ -22,8 +23,8 @@ buildPythonPackage rec {
 
   nativeBuildInputs = [
     poetry-core
-    python3Packages.flit-core
-    python3Packages.sphinx
+    flit-core
+    sphinx
   ];
 
   propagatedBuildInputs = [
